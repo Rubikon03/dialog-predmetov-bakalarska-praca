@@ -1,56 +1,75 @@
-<main class="wrap">
-  <header class="head">
-    <h1>🎭 Dialóg predmetov</h1>
-    <p class="sub">Zadaj tému a dve veci. Píšte dialóg po ťahoch — A a B majú rôzne farby. Na konci stiahni .txt.</p>
-  </header>
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dialóg predmetov</title>
 
-  <section class="grid">
-    <!-- Zadanie -->
-    <div class="card">
-      <h3>1) Téma a predmety</h3>
-      <div class="row">
-        <input id="tema" placeholder="Téma (napr. Čo znamená byť užitočný?)">
-        <button class="btn" id="temaRnd">🎲</button>
+  <!-- Подключаем стили из style.css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ВЕСЬ HTML ИЗ CODEPEN НАЧИНАЕТСЯ ЗДЕСЬ -->
+  <main class="wrap">
+    <header class="head">
+      <h1>🎭 Dialóg predmetov</h1>
+      <p class="sub">Zadaj tému a dve veci. Píšte dialóg po ťahoch — A a B majú rôzne farby. Na konci stiahni .txt.</p>
+    </header>
+
+    <section class="grid">
+      <!-- Zadanie -->
+      <div class="card">
+        <h3>1) Téma a predmety</h3>
+        <div class="row">
+          <input id="tema" placeholder="Téma (napr. Čo znamená byť užitočný?)">
+          <button class="btn" id="temaRnd">🎲</button>
+        </div>
+
+        <div class="row">
+          <input id="objA" placeholder="Predmet A (napr. Stolička)">
+          <button class="btn" id="objARnd">🎲</button>
+        </div>
+        <div class="row">
+          <input id="objB" placeholder="Predmet B (napr. Rúra)">
+          <button class="btn" id="objBRnd">🎲</button>
+        </div>
+
+        <div class="pillboard">
+          <div class="pill"><span class="k">Téma</span><span id="temaOut" class="v">—</span></div>
+          <div class="pill"><span class="k">A</span><span id="objAOut" class="v">—</span></div>
+          <div class="pill"><span class="k">B</span><span id="objBOut" class="v">—</span></div>
+        </div>
       </div>
 
-      <div class="row">
-        <input id="objA" placeholder="Predmet A (napr. Stolička)">
-        <button class="btn" id="objARnd">🎲</button>
-      </div>
-      <div class="row">
-        <input id="objB" placeholder="Predmet B (napr. Rúra)">
-        <button class="btn" id="objBRnd">🎲</button>
-      </div>
+      <!-- Editor -->
+      <div class="card">
+        <h3>2) Písanie dialógu</h3>
 
-      <div class="pillboard">
-        <div class="pill"><span class="k">Téma</span><span id="temaOut" class="v">—</span></div>
-        <div class="pill"><span class="k">A</span><span id="objAOut" class="v">—</span></div>
-        <div class="pill"><span class="k">B</span><span id="objBOut" class="v">—</span></div>
+        <div class="speaker">
+          <button class="chip chip-a" id="speakA">A</button>
+          <button class="chip chip-b" id="speakB">B</button>
+          <span class="muted">Na rade: <b id="whoNow">A</b></span>
+        </div>
+
+        <div class="row">
+          <textarea id="line" rows="3" placeholder="Napíš repliku. Enter – pridať, Shift+Enter – nový riadok."></textarea>
+        </div>
+
+        <div class="row" style="gap:.6rem; flex-wrap:wrap">
+          <button class="btn" id="addLine">➕ Pridať repliku</button>
+          <button class="btn" id="switch">↔️ Prepnúť A/B</button>
+          <button class="btn ghost" id="clearAll">🧹 Vyčistiť</button>
+          <button class="btn solid" id="download">⬇️ Stiahnuť .txt</button>
+        </div>
+
+        <div id="log" class="log" aria-live="polite"></div>
       </div>
-    </div>
+    </section>
+  </main>
+  <!-- ВЕСЬ HTML ИЗ CODEPEN ЗАКАНЧИВАЕТСЯ ЗДЕСЬ -->
 
-    <!-- Editor -->
-    <div class="card">
-      <h3>2) Písanie dialógu</h3>
-
-      <div class="speaker">
-        <button class="chip chip-a" id="speakA">A</button>
-        <button class="chip chip-b" id="speakB">B</button>
-        <span class="muted">Na rade: <b id="whoNow">A</b></span>
-      </div>
-
-      <div class="row">
-        <textarea id="line" rows="3" placeholder="Napíš repliku. Enter — pridať, Shift+Enter — nový riadok."></textarea>
-      </div>
-
-      <div class="row" style="gap:.6rem; flex-wrap:wrap">
-        <button class="btn" id="addLine">➕ Pridať repliku</button>
-        <button class="btn" id="switch">↔️ Prepnúť A/B</button>
-        <button class="btn ghost" id="clearAll">🧹 Vyčistiť</button>
-        <button class="btn solid" id="download">⬇️ Stiahnuť .txt</button>
-      </div>
-
-      <div id="log" class="log" aria-live="polite"></div>
-    </div>
-  </section>
-</main>
+  <!-- Подключаем JavaScript из script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
